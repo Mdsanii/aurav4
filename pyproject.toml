@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hybrid-perception"
+version = "0.1.0"
+description = "Hybrid OCR + visual-grounding pipeline for locating clickable UI targets"
+requires-python = ">=3.9"
+dependencies = []
+
+[project.optional-dependencies]
+ocr = ["rapidocr-onnxruntime>=1.3"]
+florence = ["torch>=2.1", "transformers>=4.40,<4.50", "pillow>=10", "timm", "einops"]
+bench = ["pillow>=10", "numpy>=1.24"]
+dev = ["pytest>=8"]
+
+[tool.setuptools]
+packages = ["hybrid_perception"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
